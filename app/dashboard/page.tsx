@@ -1,8 +1,8 @@
-
+import FCBQueryForm from "@/app/dashboard/fcb/page"
 
 export default  function page() {
   return (
-    <div> Page Baba </div>
+    <FCBQueryForm/>
   )
 }
 
