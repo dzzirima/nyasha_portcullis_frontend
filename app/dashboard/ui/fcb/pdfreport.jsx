@@ -157,7 +157,7 @@ async function printFcbPdfReport(
               {
                 text: "COMPANY NAME :",
                 bold: true,
-                fontSize: 10
+                fontSize: 10,
               },
               " DUTCH SHIPPING AND LOGISTICS",
             ],
@@ -166,7 +166,7 @@ async function printFcbPdfReport(
               {
                 text: "TRADE NAME :",
                 bold: true,
-                fontSize: 10
+                fontSize: 10,
               },
               "",
             ],
@@ -175,7 +175,7 @@ async function printFcbPdfReport(
               {
                 text: "COMPANY TYPE:",
                 bold: true,
-                fontSize: 10
+                fontSize: 10,
               },
               " PRIVATE LIMITED COMPANY",
             ],
@@ -184,7 +184,7 @@ async function printFcbPdfReport(
               {
                 text: "COUNTRY",
                 bold: true,
-                fontSize: 10
+                fontSize: 10,
               },
               " ZIMBABWE",
             ],
@@ -193,7 +193,7 @@ async function printFcbPdfReport(
               {
                 text: "INDUSTRY :",
                 bold: true,
-                fontSize: 10
+                fontSize: 10,
               },
               " TRANSPORT",
             ],
@@ -283,21 +283,115 @@ async function printFcbPdfReport(
         table: {
           widths: [100, "auto", "*"],
           body: [
-            ["Column 1", "NATIONALITY :", "ZIMBABWE"],
-            ["Column 1", "DATE OF BIRTH :", "1992-11-11"],
-            ["Column 1", "NATIONAL ID :", " 59142397N22"],
-            ["Column 1", "PASSPORT NO :", " "],
-            ["Column 1", "GENDER :", " FEMALE"],
-            ["Column 1", "MOBILE :", " 0773824275"],
-            ["Column 1", "PROPERTY STATUS :", "OWNED"],
-            ["Column 1", "PROPERTY DENSITY:", "High"],
             [
               "Column 1",
-              "ADDRESS::",
+
+              {
+                text: "NATIONALITY :",
+                bold: true,
+                fontSize: 10,
+              },
+              "ZIMBABWE",
+            ],
+            [
+              "Column 1",
+              {
+                text: "DATE OF BIRTH :",
+                bold: true,
+                fontSize: 10,
+              },
+
+              "1992-11-11",
+            ],
+            [
+              "Column 1",
+              {
+                text: "NATIONAL ID :",
+                bold: true,
+                fontSize: 10,
+              },
+              " 59142397N22",
+            ],
+            [
+              "Column 1",
+
+              {
+                text: "PASSPORT NO :",
+                bold: true,
+                fontSize: 10,
+              },
+              " ",
+            ],
+            [
+              "Column 1",
+
+              {
+                text: "GENDER :",
+                bold: true,
+                fontSize: 10,
+              },
+              " FEMALE",
+            ],
+            [
+              "Column 1",
+
+              {
+                text: "MOBILE :",
+                bold: true,
+                fontSize: 10,
+              },
+              " 0773824275",
+            ],
+            [
+              "Column 1",
+
+              {
+                text: "PROPERTY STATUS :",
+                bold: true,
+                fontSize: 10,
+              },
+
+              "OWNED",
+            ],
+            [
+              "Column 1",
+
+              {
+                text: "PROPERTY DENSITY:",
+                bold: true,
+                fontSize: 10,
+              },
+
+              "High",
+            ],
+            [
+              "Column 1",
+              {
+                text: "ADDRESS:",
+                bold: true,
+                fontSize: 10,
+              },
               " 298 KIRKMAN ROAD DZIVARASEKWA EXTENSION HARARE",
             ],
-            ["Column 1", "MARITAL STATUS:", ""],
-            ["Column 1", "BP No:", ""],
+            [
+              "Column 1",
+
+              {
+                text: "MARITAL STATUS:",
+                bold: true,
+                fontSize: 10,
+              },
+              "",
+            ],
+            [
+              "Column 1",
+              {
+                text: "BP No:",
+                bold: true,
+                fontSize: 10,
+              },
+              "",
+            ],
           ],
         },
       },
@@ -497,27 +591,11 @@ async function printFcbPdfReport(
                 fit: [66, 66],
                 // pageBreak: 'after'
               },
-              {
-                text: "TAZVIDA GAZA ",
-                fontSize: "13",
-                alignment: "left",
-              },
-              {
-                text: "CHIEF EXECUTIVE OFFICER",
-                color: "#00CCFF",
-                fontSize: "8",
-                alignment: "left",
-              },
             ],
           },
+         
           {
-            image: await getBase64ImageFromURL("/logo.png"),
-            fit: [120, 120],
-            alignment: "center",
-          },
-          {
-            // qr:"https://7246-41-60-67-137.ngrok-free.app/certificate/verify/"+authenticationCode+"/",
-            qr: ` Name : ${companyName} \n  Service : Speed Limiter Compliance  \n Vehicle:${vehicle}\n Validity : ${generatedOn} - ${expiryDate} \n Verification Code : ${authenticationCode} `,
+            qr: 'hello world ',
             style: "para",
             fit: "100",
             alignment: "right",
