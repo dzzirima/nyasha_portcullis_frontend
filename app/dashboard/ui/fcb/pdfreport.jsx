@@ -55,57 +55,49 @@ async function printFcbPdfReport(
   generatedOn = dayjs(generatedOn).format("DD/MM/YYYY");
   expiryDate = dayjs(expiryDate).format("DD/MM/YYYY");
   var docDefinition = {
-    // background: function (currentPage, pageSize) {
-    //   return [
-    //     {
-    //       canvas: [
-    //         {
-    //           type: "line",
-    //           x1: 5,
-    //           y1: 5,
-    //           x2: 835,
-    //           y2: 5,
-    //           lineWidth: 1,
-    //           strokeStyle: "green",
-    //         }, //Up line
-    //         { type: "line", x1: 5, y1: 5, x2: 5, y2: 590, lineWidth: 1 }, //Left line
-    //         { type: "line", x1: 5, y1: 590, x2: 835, y2: 590, lineWidth: 1 }, //Bottom line
-    //         { type: "line", x1: 835, y1: 5, x2: 835, y2: 590, lineWidth: 1 }, //Rigth line
-    //       ],
-    //     },
-    //   ];
-    // },
     pageSize: "A4",
 
-    // by default we use portrait, you can change it to landscape if you wish
-    // pageOrientation: "landscape",
     content: [
       {
-        text: "CREDIT & CLEARING REFERENCE BUREAU DIRECTORS REPORT",
-        style: "header",
-        fontSize: 15,
-        color: "#00CCFF",
-        alignment: "center",
-        characterSpacing: 2,
+        table: {
+          widths: "*",
+          body: [
+            [
+              {
+                border: [false, false, false, false],
+                fontSize: 15,
+                fillColor: "#686D76",
+                alignment: "center",
+                color: "#FFFFFF",
+                text: "CREDIT & CLEARING REFERENCE BUREAU DIRECTORS REPORT",
+                lineHeight: 1,
+              },
+            ],
+          ],
+        },
       },
 
       // with red title
       {
         columns: [
           {
-            text: "SUBSCRIBER: ONE FOUR NINE FINANCIAL SERVICE PL ",
-            fontSize: "8",
-            alignment: "left",
-          },
-          {
-            text: "BRANCH: HARARE",
-            fontSize: "8",
-            alignment: "right",
-          },
-          {
-            text: "USER: TINASHE CHAWIRA ",
-            fontSize: "8",
-            alignment: "right",
+            table: {
+              widths: "*",
+              body: [
+                [
+                  {
+                    border: [false, false, false, false],
+                    fontSize: 9,
+                    fillColor: "#921A40",
+                    alignment: "left",
+                    lineHeight: 2,
+                    color: "#FFFFFF",
+                    text: "SUBSCRIBER: ONE FOUR NINE FINANCIAL SERVICE PL            BRANCH: HARARE              USER: TINASHE CHAWIRA",
+                    lineHeight: 1,
+                  },
+                ],
+              ],
+            },
           },
         ],
       },
@@ -116,6 +108,7 @@ async function printFcbPdfReport(
           {
             text: "Report Serial: 205586334",
             fontSize: "8",
+            lineHeight: 1,
             alignment: "left",
           },
 
@@ -127,7 +120,7 @@ async function printFcbPdfReport(
         ],
       },
 
-      // directors report 
+      // directors report
       {
         text: `DIRECTORS REPORT`,
         alignment: "center",
@@ -155,24 +148,126 @@ async function printFcbPdfReport(
       },
       /** end of directors  */
       {
-        style: 'tableExample',
+        style: "tableExample",
         table: {
-          widths: [100, 'auto','*'],
+          widths: [100, "auto", "*"],
           body: [
-            ['Column 1', 'COMPANY NAME :', ' DUTCH SHIPPING AND LOGISTICS'],
-            ['Column 1', 'TRADE NAME :', ''],
-            ['Column 1', 'COMPANY TYPE:', ' PRIVATE LIMITED COMPANY'],
-            ['Column 1', 'COUNTRY:', ' ZIMBABWE'],
-            ['Column 1', 'INDUSTRY :', ' TRANSPORT'],
-            ['Column 1', 'GOODS AND SERVICES :', ' '],
-            ['Column 1', 'REGISTRATION NUMBER :', '14928/2021'],
-            ['Column 1', 'DATE OF REGISTRATION:', '2021-09-07'],
-            ['Column 1', 'REGISTERED ADDRESS::', ' 298 KIRKMAN ROAD DZIVARASEKWA EXTENSION HARARE'],
-            ['Column 1', 'VAT No :', ''],
-            ['Column 1', 'BP No:', ''],
-            ['Column 1', 'INSURANCE:', 'N/A'],
-          ]
-        }
+            [
+              "Column 1",
+              {
+                text: "COMPANY NAME :",
+                bold: true,
+                fontSize: 10
+              },
+              " DUTCH SHIPPING AND LOGISTICS",
+            ],
+            [
+              "Column 1",
+              {
+                text: "TRADE NAME :",
+                bold: true,
+                fontSize: 10
+              },
+              "",
+            ],
+            [
+              "Column 1",
+              {
+                text: "COMPANY TYPE:",
+                bold: true,
+                fontSize: 10
+              },
+              " PRIVATE LIMITED COMPANY",
+            ],
+            [
+              "Column 1",
+              {
+                text: "COUNTRY",
+                bold: true,
+                fontSize: 10
+              },
+              " ZIMBABWE",
+            ],
+            [
+              "Column 1",
+              {
+                text: "INDUSTRY :",
+                bold: true,
+                fontSize: 10
+              },
+              " TRANSPORT",
+            ],
+            [
+              "Column 1",
+              {
+                text: "GOODS AND SERVICES :",
+                bold: true,
+                fontSize: 10,
+              },
+              " ",
+            ],
+            [
+              "Column 1",
+              {
+                text: "REGISTRATION NUMBER :",
+                bold: true,
+                fontSize: 10,
+              },
+
+              "14928/2021",
+            ],
+            [
+              "Column 1",
+              {
+                text: "DATE OF REGISTRATION:",
+                bold: true,
+                fontSize: 10,
+              },
+
+              "2021-09-07",
+            ],
+            [
+              "Column 1",
+              {
+                text: "REGISTERED ADDRESS::",
+                bold: true,
+                fontSize: 10,
+              },
+
+              " 298 KIRKMAN ROAD DZIVARASEKWA EXTENSION HARARE",
+            ],
+            [
+              "Column 1",
+              {
+                text: "VAT No :",
+                bold: true,
+                fontSize: 10,
+              },
+
+              "",
+            ],
+            [
+              "Column 1",
+              {
+                text: "BP No:",
+                bold: true,
+                fontSize: 10,
+              },
+
+              "",
+            ],
+            [
+              "Column 1",
+              {
+                text: "INSURANCE:",
+                bold: true,
+                fontSize: 10,
+              },
+
+              "N/A",
+            ],
+          ],
+        },
       },
       /** start of director details */
       {
@@ -184,23 +279,27 @@ async function printFcbPdfReport(
       },
 
       {
-        style: 'tableExample',
+        style: "tableExample",
         table: {
-          widths: [100, 'auto','*'],
+          widths: [100, "auto", "*"],
           body: [
-            ['Column 1', 'NATIONALITY :', 'ZIMBABWE'],
-            ['Column 1', 'DATE OF BIRTH :', '1992-11-11'],
-            ['Column 1', 'NATIONAL ID :', ' 59142397N22'],
-            ['Column 1', 'PASSPORT NO :', ' '],
-            ['Column 1', 'GENDER :', ' FEMALE'],
-            ['Column 1', 'MOBILE :', ' 0773824275'],
-            ['Column 1', 'PROPERTY STATUS :', 'OWNED'],
-            ['Column 1', 'PROPERTY DENSITY:', 'High'],
-            ['Column 1', 'ADDRESS::', ' 298 KIRKMAN ROAD DZIVARASEKWA EXTENSION HARARE'],
-            ['Column 1', 'MARITAL STATUS:', ''],
-            ['Column 1', 'BP No:', ''],
-          ]
-        }
+            ["Column 1", "NATIONALITY :", "ZIMBABWE"],
+            ["Column 1", "DATE OF BIRTH :", "1992-11-11"],
+            ["Column 1", "NATIONAL ID :", " 59142397N22"],
+            ["Column 1", "PASSPORT NO :", " "],
+            ["Column 1", "GENDER :", " FEMALE"],
+            ["Column 1", "MOBILE :", " 0773824275"],
+            ["Column 1", "PROPERTY STATUS :", "OWNED"],
+            ["Column 1", "PROPERTY DENSITY:", "High"],
+            [
+              "Column 1",
+              "ADDRESS::",
+              " 298 KIRKMAN ROAD DZIVARASEKWA EXTENSION HARARE",
+            ],
+            ["Column 1", "MARITAL STATUS:", ""],
+            ["Column 1", "BP No:", ""],
+          ],
+        },
       },
 
       /** DIRECTORS */
@@ -214,19 +313,22 @@ async function printFcbPdfReport(
       },
 
       {
-        style: 'tableExample',
+        style: "tableExample",
         table: {
-          widths: ['*', 100,100 , 100],
+          widths: ["*", 100, 100, 100],
           headerRows: 1,
           body: [
-            [{text: 'DIRECTORS', style: 'tableHeader'}, {text: 'ID NUMBER', style: 'tableHeader'}, {text: 'SCORE', style: 'tableHeader'} , {text: 'STATUS', style: 'tableHeader'}],
-            ['TAWANDA CUTHBERT CHITIMA', '25085687A75', '245' , 'GOOD'],
-            ['BELINDA', '25085687A75', '245' , 'GOOD']
-
-          ]
-        }
+            [
+              { text: "DIRECTORS", style: "tableHeader" },
+              { text: "ID NUMBER", style: "tableHeader" },
+              { text: "SCORE", style: "tableHeader" },
+              { text: "STATUS", style: "tableHeader" },
+            ],
+            ["TAWANDA CUTHBERT CHITIMA", "25085687A75", "245", "GOOD"],
+            ["BELINDA", "25085687A75", "245", "GOOD"],
+          ],
+        },
       },
-
 
       /** Address */
 
@@ -239,15 +341,29 @@ async function printFcbPdfReport(
       },
 
       {
-        style: 'tableExample',
+        style: "tableExample",
         table: {
           // widths: ['*', 100,100 , 100 , 100, 100],
           headerRows: 1,
           body: [
-            [{text: 'DATE', style: 'tableHeader'}, {text: 'STREET NAME', style: 'tableHeader'}, {text: 'CITY', style: 'tableHeader'} , {text: 'COUNTRY', style: 'tableHeader'} , {text: 'PHONE', style: 'tableHeader'}, {text: 'PROPERTY RIGHTS', style: 'tableHeader'}],
-            ['23-July-2024', '298 KIRKMAN ROAD', 'HARARE' , 'ZIMBABWE', '077382275' , 'HIGH : Owned'],
-          ]
-        }
+            [
+              { text: "DATE", style: "tableHeader" },
+              { text: "STREET NAME", style: "tableHeader" },
+              { text: "CITY", style: "tableHeader" },
+              { text: "COUNTRY", style: "tableHeader" },
+              { text: "PHONE", style: "tableHeader" },
+              { text: "PROPERTY RIGHTS", style: "tableHeader" },
+            ],
+            [
+              "23-July-2024",
+              "298 KIRKMAN ROAD",
+              "HARARE",
+              "ZIMBABWE",
+              "077382275",
+              "HIGH : Owned",
+            ],
+          ],
+        },
       },
 
       /** previous searches */
@@ -261,18 +377,38 @@ async function printFcbPdfReport(
       },
 
       {
-        style: 'tableExample',
+        style: "tableExample",
         table: {
           // widths: ['*', 100,100 , 100 , 100, 100],
           headerRows: 1,
           body: [
-            [{text: 'DATE', style: 'tableHeader'}, {text: 'SEARCH PURPOSE', style: 'tableHeader'}, {text: 'SUBSCRIBER', style: 'tableHeader'} , {text: 'BRANCH', style: 'tableHeader'} , {text: 'SCORE', style: 'tableHeader'}, {text: 'STATUS', style: 'tableHeader'}],
-            ['23-Jul-2024', 'NEW CUSTOMER (KYC)', 'ONE FOUR NINE FINANCIAL SERVICE PL' , 'HARARE', '313' , 'GOOD'],
-            ['23-Jul-2024', 'NEW CUSTOMER (KYC)', 'ONE FOUR NINE FINANCIAL SERVICE PL' , 'HARARE', '333' , 'GREEN'],
-          ]
-        }
+            [
+              { text: "DATE", style: "tableHeader" },
+              { text: "SEARCH PURPOSE", style: "tableHeader" },
+              { text: "SUBSCRIBER", style: "tableHeader" },
+              { text: "BRANCH", style: "tableHeader" },
+              { text: "SCORE", style: "tableHeader" },
+              { text: "STATUS", style: "tableHeader" },
+            ],
+            [
+              "23-Jul-2024",
+              "NEW CUSTOMER (KYC)",
+              "ONE FOUR NINE FINANCIAL SERVICE PL",
+              "HARARE",
+              "313",
+              "GOOD",
+            ],
+            [
+              "23-Jul-2024",
+              "NEW CUSTOMER (KYC)",
+              "ONE FOUR NINE FINANCIAL SERVICE PL",
+              "HARARE",
+              "333",
+              "GREEN",
+            ],
+          ],
+        },
       },
-
 
       /** report incomes */
 
@@ -285,19 +421,35 @@ async function printFcbPdfReport(
       },
 
       {
-        style: 'tableExample',
+        style: "tableExample",
         table: {
           // widths: ['*', 100,100 , 100 , 100, 100],
           headerRows: 1,
           body: [
-            [{text: 'DATE', style: 'tableHeader'}, {text: 'EMPLOYER', style: 'tableHeader'}, {text: 'INDUSTRY', style: 'tableHeader'} , {text: 'SALARY BAND', style: 'tableHeader'} , {text: 'OCCUPATION', style: 'tableHeader'}],
-            ['23-Jul-2024', 'DUTCH SHIPPING AND LOGISTICS', 'TRANSPORT' , '', 'DIRECTOR'  ],
-            ['23-Jul-2024', 'DUTCH SHIPPING AND LOGISTICS', 'TRANSPORT' , '', 'DIRECTOR'  ]
-          ]
-        }
+            [
+              { text: "DATE", style: "tableHeader" },
+              { text: "EMPLOYER", style: "tableHeader" },
+              { text: "INDUSTRY", style: "tableHeader" },
+              { text: "SALARY BAND", style: "tableHeader" },
+              { text: "OCCUPATION", style: "tableHeader" },
+            ],
+            [
+              "23-Jul-2024",
+              "DUTCH SHIPPING AND LOGISTICS",
+              "TRANSPORT",
+              "",
+              "DIRECTOR",
+            ],
+            [
+              "23-Jul-2024",
+              "DUTCH SHIPPING AND LOGISTICS",
+              "TRANSPORT",
+              "",
+              "DIRECTOR",
+            ],
+          ],
+        },
       },
-
-
 
       /** report incomes */
 
@@ -310,22 +462,31 @@ async function printFcbPdfReport(
       },
 
       {
-        style: 'tableExample',
+        style: "tableExample",
         table: {
           // widths: ['*', 100,100 , 100 , 100, 100],
           headerRows: 1,
           body: [
-            [{text: 'COMPANY NAME', style: 'tableHeader'}, {text: 'TRADE NAME', style: 'tableHeader'}, {text: 'REG No.', style: 'tableHeader'} , {text: 'D.O.F', style: 'tableHeader'} , {text: 'DATE SENT', style: 'tableHeader'} , {text: 'STATUS', style: 'tableHeader'}],
-            ['DUTCH SHIPPING AND LOGISTICS', '', '14928/2021' , '07-Sep-2021', '04-Mar-2024','GREEN'  ],
-       
-          ]
-        }
+            [
+              { text: "COMPANY NAME", style: "tableHeader" },
+              { text: "TRADE NAME", style: "tableHeader" },
+              { text: "REG No.", style: "tableHeader" },
+              { text: "D.O.F", style: "tableHeader" },
+              { text: "DATE SENT", style: "tableHeader" },
+              { text: "STATUS", style: "tableHeader" },
+            ],
+            [
+              "DUTCH SHIPPING AND LOGISTICS",
+              "",
+              "14928/2021",
+              "07-Sep-2021",
+              "04-Mar-2024",
+              "GREEN",
+            ],
+          ],
+        },
       },
-      
 
-      
-
-      
       {
         columns: [
           {
