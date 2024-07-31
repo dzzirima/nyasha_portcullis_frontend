@@ -9,6 +9,7 @@ export default function QueryForm() {
   const [state, dispatch] = useFormState(createClient, initialState);
 
   return (
+    
     <form action={dispatch}>
       <div className="flex w-full  ">
         <div className="flex flex-col justify-center mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -187,13 +188,11 @@ export default function QueryForm() {
         
       </div>
 
-      <div className="flex justify-evenly">
-        <div className=" flex-2/3">
+    
         
           <SubmitButton label={"Generate Report"} />
-        </div>
-        <div className=""> </div>
-      </div>
+     
+     
     </form>
   );
 }
