@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/dashboard/ui/fcb/queryform.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/dashboard/ui/fcb/queryform.tsx", "app/dashboard/ui/fcb/pdfreport.jsx"],
   "exclude": ["node_modules"]
 }

@@ -1,16 +1,27 @@
+"use client"
 import SubmitButton from "@/app/dashboard/ui/utils/SubmitButton";
 import { Checkbox, FormControlLabel, TextField } from "@mui/material";
 import { useFormState } from "react-dom";
 import { createClient, State } from "@/app/dashboard/actions/fcb";
 
 export default function QueryForm() {
-  const initialState: State = { message: "", errors: {} };
 
+  const initialState: State = { message: "", errors: {} };
   const [state, dispatch] = useFormState(createClient, initialState);
+
+  let submit = () =>{
+    //@ts-ignore
+    var formEl = document.forms.fcbForm;
+
+    var formData = new FormData(formEl);
+    const rawDataFromEntries = Object.fromEntries(formData.entries());
+    console.log("Seending data to backend")
+    console.log(rawDataFromEntries)
+  }
 
   return (
     
-    <form action={dispatch}>
+    <form action={submit}  id="fcbForm">
       <div className="flex w-full  ">
         <div className="flex flex-col justify-center mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
           <TextField
