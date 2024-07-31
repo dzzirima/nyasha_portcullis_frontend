@@ -3,13 +3,11 @@ import SubmitButton from "@/app/dashboard/ui/utils/SubmitButton";
 import { Checkbox, FormControlLabel, TextField } from "@mui/material";
 import { useFormState } from "react-dom";
 import { createClient, State } from "@/app/dashboard/actions/fcb";
+import printFcbPdfReport from "./pdfreport";
 
 export default function QueryForm() {
 
-  const initialState: State = { message: "", errors: {} };
-  const [state, dispatch] = useFormState(createClient, initialState);
-
-  let submit = () =>{
+  let submit = async () =>{
     //@ts-ignore
     var formEl = document.forms.fcbForm;
 
@@ -17,6 +15,10 @@ export default function QueryForm() {
     const rawDataFromEntries = Object.fromEntries(formData.entries());
     console.log("Seending data to backend")
     console.log(rawDataFromEntries)
+
+    await printFcbPdfReport(
+    
+    )
   }
 
   return (
