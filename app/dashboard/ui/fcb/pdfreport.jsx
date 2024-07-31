@@ -202,6 +202,127 @@ async function printFcbPdfReport(
           ]
         }
       },
+
+      /** DIRECTORS */
+
+      {
+        text: `DIRECTORs`,
+        alignment: "left",
+        bold: true,
+        fontSize: 10,
+        lineHeight: 2,
+      },
+
+      {
+        style: 'tableExample',
+        table: {
+          widths: ['*', 100,100 , 100],
+          headerRows: 1,
+          body: [
+            [{text: 'DIRECTORS', style: 'tableHeader'}, {text: 'ID NUMBER', style: 'tableHeader'}, {text: 'SCORE', style: 'tableHeader'} , {text: 'STATUS', style: 'tableHeader'}],
+            ['TAWANDA CUTHBERT CHITIMA', '25085687A75', '245' , 'GOOD'],
+            ['BELINDA', '25085687A75', '245' , 'GOOD']
+
+          ]
+        }
+      },
+
+
+      /** Address */
+
+      {
+        text: `ADDRESSES  (Last 5 years with most recent first)`,
+        alignment: "left",
+        bold: true,
+        fontSize: 10,
+        lineHeight: 2,
+      },
+
+      {
+        style: 'tableExample',
+        table: {
+          // widths: ['*', 100,100 , 100 , 100, 100],
+          headerRows: 1,
+          body: [
+            [{text: 'DATE', style: 'tableHeader'}, {text: 'STREET NAME', style: 'tableHeader'}, {text: 'CITY', style: 'tableHeader'} , {text: 'COUNTRY', style: 'tableHeader'} , {text: 'PHONE', style: 'tableHeader'}, {text: 'PROPERTY RIGHTS', style: 'tableHeader'}],
+            ['23-July-2024', '298 KIRKMAN ROAD', 'HARARE' , 'ZIMBABWE', '077382275' , 'HIGH : Owned'],
+          ]
+        }
+      },
+
+      /** previous searches */
+
+      {
+        text: `Previous Searches   (Last 5 years with most recent first)`,
+        alignment: "left",
+        bold: true,
+        fontSize: 10,
+        lineHeight: 2,
+      },
+
+      {
+        style: 'tableExample',
+        table: {
+          // widths: ['*', 100,100 , 100 , 100, 100],
+          headerRows: 1,
+          body: [
+            [{text: 'DATE', style: 'tableHeader'}, {text: 'SEARCH PURPOSE', style: 'tableHeader'}, {text: 'SUBSCRIBER', style: 'tableHeader'} , {text: 'BRANCH', style: 'tableHeader'} , {text: 'SCORE', style: 'tableHeader'}, {text: 'STATUS', style: 'tableHeader'}],
+            ['23-Jul-2024', 'NEW CUSTOMER (KYC)', 'ONE FOUR NINE FINANCIAL SERVICE PL' , 'HARARE', '313' , 'GOOD'],
+            ['23-Jul-2024', 'NEW CUSTOMER (KYC)', 'ONE FOUR NINE FINANCIAL SERVICE PL' , 'HARARE', '333' , 'GREEN'],
+          ]
+        }
+      },
+
+
+      /** report incomes */
+
+      {
+        text: `REPORTED INCOMES  (Last 5 years with most recent first)`,
+        alignment: "left",
+        bold: true,
+        fontSize: 10,
+        lineHeight: 2,
+      },
+
+      {
+        style: 'tableExample',
+        table: {
+          // widths: ['*', 100,100 , 100 , 100, 100],
+          headerRows: 1,
+          body: [
+            [{text: 'DATE', style: 'tableHeader'}, {text: 'EMPLOYER', style: 'tableHeader'}, {text: 'INDUSTRY', style: 'tableHeader'} , {text: 'SALARY BAND', style: 'tableHeader'} , {text: 'OCCUPATION', style: 'tableHeader'}],
+            ['23-Jul-2024', 'DUTCH SHIPPING AND LOGISTICS', 'TRANSPORT' , '', 'DIRECTOR'  ],
+            ['23-Jul-2024', 'DUTCH SHIPPING AND LOGISTICS', 'TRANSPORT' , '', 'DIRECTOR'  ]
+          ]
+        }
+      },
+
+
+
+      /** report incomes */
+
+      {
+        text: `DIRECTORSHIP FROM USER SEARCHES`,
+        alignment: "left",
+        bold: true,
+        fontSize: 10,
+        lineHeight: 2,
+      },
+
+      {
+        style: 'tableExample',
+        table: {
+          // widths: ['*', 100,100 , 100 , 100, 100],
+          headerRows: 1,
+          body: [
+            [{text: 'COMPANY NAME', style: 'tableHeader'}, {text: 'TRADE NAME', style: 'tableHeader'}, {text: 'REG No.', style: 'tableHeader'} , {text: 'D.O.F', style: 'tableHeader'} , {text: 'DATE SENT', style: 'tableHeader'} , {text: 'STATUS', style: 'tableHeader'}],
+            ['DUTCH SHIPPING AND LOGISTICS', '', '14928/2021' , '07-Sep-2021', '04-Mar-2024','GREEN'  ],
+       
+          ]
+        }
+      },
+      
+
       
 
       
@@ -256,7 +377,8 @@ async function printFcbPdfReport(
         italics: true,
       },
       tableExample: {
-        margin: [0, 5, 0, 15]
+        margin: [0, 5, 0, 15],
+        fontSize: 8,
       },
       small: {
         fontSize: 8,
